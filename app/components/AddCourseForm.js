@@ -19,10 +19,10 @@ const AddCourseForm = () => {
   const { dispatch } = useContext(CourseContext);
 
   const submitForm = data => {
-    dispatch({ type: 'ADD_COURSE', payload: { ...data, enrolled: false } });
-    addCourse(data).then(() => {
-      reset();
-    });
+    dispatch({ type: 'ADD_COURSES', payload: { ...data, enrolled: false } });
+    // addCourse(data).then(() => {
+    //   reset();
+    // });
   };
 
   return (
