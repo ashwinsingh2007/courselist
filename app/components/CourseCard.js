@@ -2,7 +2,7 @@ import React from "react"
 import Image from 'next/image'
 import CourseContext from "../context/CourseContext";
 export default function CourseCard({ course }) {
-    const { state, dispatch } = React.useContext(CourseContext);
+    const { dispatch } = React.useContext(CourseContext);
     const FALLBACK_IMAGE_URL = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrbNd39rV_QS6XJeKM-pdk8VNFmiL_G-L0dg&s';
     const isValidUrl = (url) => {
         try {
