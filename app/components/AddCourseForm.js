@@ -6,7 +6,7 @@ import { useContext } from 'react';
 import CourseContext from '../context/CourseContext';
 import { addCourse } from '../services/api';
 
-const AddCourseForm = () => {
+const AddCourseForm = ({onSuccess}) => {
   const {
     register,
     handleSubmit,
@@ -19,10 +19,11 @@ const AddCourseForm = () => {
   const { dispatch } = useContext(CourseContext);
 
   const submitForm = data => {
-    dispatch({ type: 'ADD_COURSES', payload: { ...data, enrolled: false } });
-    // addCourse(data).then(() => {
-    //   reset();
-    // });
+    onSuccess()
+    dispatch({ type: 'ADD_COURSES', payload: { ...data, enrolled: false, id: Date.now() } });
+    addCourse(data).then(() => {
+      reset();
+    });
   };
 
   return (
